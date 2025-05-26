@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 
 const TodoForm = ({ onTodoAdded }) => {
@@ -14,9 +15,11 @@ const TodoForm = ({ onTodoAdded }) => {
       await axios.post('http://localhost:8080/api/todos', { title: inputValue });
       setInputValue('');
       onTodoAdded(); // 🔁 Re-fetch todos after successful add
+      toast.success('Todo added successfully!');
     } catch (err) {
       console.error('Error adding todo:', err);
-      alert('Failed to add task.');
+      toast.error('Failed to add todo.');
+
     } finally {
       setLoading(false);
     }

@@ -3,6 +3,8 @@ import axios from 'axios';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
+import { Toaster } from 'react-hot-toast';
+
 const App = () => {
   const [todos, setTodos] = useState([]);
 
@@ -33,6 +35,7 @@ const App = () => {
         <TodoForm onTodoAdded={fetchTodos} />
         <TodoList todos={todos} onUpdateTodo={fetchTodos} />
       </div>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 };

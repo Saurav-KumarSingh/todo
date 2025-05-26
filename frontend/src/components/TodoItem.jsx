@@ -1,4 +1,5 @@
 import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 import React, { useState } from 'react';
 
 const TodoItem = ({ todo, onUpdateTodo }) => {
@@ -9,9 +10,11 @@ const TodoItem = ({ todo, onUpdateTodo }) => {
     try {
       await axios.delete('http://localhost:8080/api/todos', { data: { id } });
       onUpdateTodo();
+      toast.success('Todo deleted successfully!');
+
     } catch (err) {
       console.error('Failed to delete todo:', err);
-      alert('Could not delete the todo.');
+      toast.error('Could not delete the todo.');
     }
   };
 
@@ -29,7 +32,8 @@ const TodoItem = ({ todo, onUpdateTodo }) => {
 
   const handleTitleUpdate = async () => {
     if (editTitle.trim() === '') {
-      alert("Title can't be empty");
+      toast.error("Title can't be empty");
+
       return;
     }
 
@@ -45,9 +49,12 @@ const TodoItem = ({ todo, onUpdateTodo }) => {
       });
       onUpdateTodo();
       setIsEditing(false);
+      toast.success('Todo updated successfully!');
+
     } catch (err) {
       console.error('Update failed:', err);
-      alert('Could not update the todo.');
+      toast.error('Could not update the todo.');
+
     }
   };
 
