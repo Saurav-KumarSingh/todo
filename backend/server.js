@@ -8,7 +8,14 @@ const todoRoutes=require('./routes/todo_route')
 dotenv.config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+
+const corsOptions = {
+  origin: [
+    "http://localhost:5173",                  // local frontend     
+  ],
+  credentials: true,
+};
+app.use(cors(corsOptions));
 const port = process.env.PORT||8080 ;
 
 app.get('/', (req, res) => {
