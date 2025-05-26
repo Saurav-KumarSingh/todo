@@ -30,18 +30,6 @@
 
 ---
 
-## 🏁 Getting Started
-
-### 🔧 Prerequisites
-
-Ensure the following are installed:
-
-* [Node.js](https://nodejs.org/)
-* npm or [Yarn](https://yarnpkg.com/)
-* A MySQL database instance
-
----
-
 ### 📥 Installation & Running
 
 #### 1. Clone the Repository
@@ -58,7 +46,6 @@ cd todo
 ```bash
 cd backend
 npm install
-# Configure your database connection in a .env file
 npm run dev
 ```
 
@@ -67,17 +54,7 @@ npm run dev
 #### 3. Frontend Setup
 
 ```bash
-cd ../frontend
+cd frontend
 npm install
 npm run dev
 ```
-
----
-
-## 📂 Folder Structure
-
-```
-todo/
-│
-├── backend/         # Express backend with MySQL integration
-└── frontend/        # React frontend using Tailwind CSS
