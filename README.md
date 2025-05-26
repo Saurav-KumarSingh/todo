@@ -81,8 +81,3 @@ todo/
 │
 ├── backend/         # Express backend with MySQL integration
 └── frontend/        # React frontend using Tailwind CSS
-```
-
----
-
-Let me know if you want to include environment variable examples or deployment steps!
